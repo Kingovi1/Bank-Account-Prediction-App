@@ -2,11 +2,11 @@ import pandas as pd
 import numpy as np
 import streamlit as st
 
-#importing the dataframe
+#importing the dataset
 df1 = pd.read_csv('Financial_inclusion_dataset.csv')
 df=pd.read_csv('Financial_inclusion_dataset.csv')
 
-#Information on all columns
+#Checking all Columns
 print(df.info())
 
 df.head(1)
@@ -69,8 +69,7 @@ if submit:
     for i,j in encoder.items():
         user_input[i]=j.transform([user_input[i]])[0]
     features=[value for value in user_input.values()]
-    """for i,j in user_input.items():
-        features.append(user_input[i])"""
+   
     features.insert(2,household_size)
     features.insert(3, age)
     st.write('The Answer is', rc.predict([features])[0])
